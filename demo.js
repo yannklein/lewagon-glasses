@@ -16,11 +16,47 @@ function init_threeScene(spec) {
   const threeStuffs = THREE.JeelizHelper.init(spec, detect_callback);
 
    // CREATE A CUBE
-  const cubeGeometry = new THREE.BoxGeometry(1,1,1);
-  const cubeMaterial = new THREE.MeshNormalMaterial();
-  const threeCube = new THREE.Mesh(cubeGeometry, cubeMaterial);
-  threeCube.frustumCulled = false;
-  threeStuffs.faceObject.add(threeCube);
+  // const cubeGeometry = new THREE.BoxGeometry(1,1,1);
+  // const cubeMaterial = new THREE.MeshNormalMaterial();
+  // const threeCube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+  // threeCube.frustumCulled = false;
+  // threeStuffs.faceObject.add(threeCube);
+
+  const loader = new THREE.TextureLoader();
+
+  loader.load(
+    './images/logo.png',
+    (texture) => {
+      const leftGlass = createCircle({
+        matParams: {
+          map: texture,
+          side: THREE.DoubleSide
+        },
+        position: { x: -0.3, y: 0.2, z: 0.6 },
+        radius: 0.2
+      });
+      leftGlass.frustumCulled = false;
+      threeStuffs.faceObject.add(leftGlass);
+
+      const rightGlass = createCircle({
+        matParams: {
+          map: texture,
+          side: THREE.DoubleSide
+        },
+        position: { x: 0.3, y: 0.2, z: 0.6 },
+        radius: 0.2
+      });
+      rightGlass.frustumCulled = false;
+      threeStuffs.faceObject.add(rightGlass);
+    },
+    //onProgress
+    undefined,
+    // onError callback
+   (err) => {
+      console.error( 'An error happened.' );
+    }
+  );
+
 
   //CREATE THE CAMERA
   THREECAMERA = THREE.JeelizHelper.create_camera();
