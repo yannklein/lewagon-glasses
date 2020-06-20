@@ -3,8 +3,11 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="content-language" content="en-EN" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>JEELIZ FACE FILTER : THREE.JS CUBE DEMO WITH THREE.JS HELPER</title>
+    <title>Le Wagon glasses</title>
+
+    <link rel="stylesheet" href="style.css">
 
     <!-- INCLUDE JEELIZ FACEFILTER SCRIPT -->
     <script src="./lib/jeelizFaceFilter.js"></script>
@@ -23,13 +26,25 @@
     <script src="./three-circle.js"></script>
     <script src="./three-gltf.js"></script>
     <script src="./three-plane.js"></script>
-    <script src="./demo.js"></script>
+    <script src="./index.js"></script>
 
-<!--     <link rel="stylesheet" href="../../appearance/style.css" type="text/css" /> -->
   </head>
 
-  <body onload="main()" style='color: white'>
-    <canvas width="600" height="600" id='jeeFaceFilterCanvas'></canvas>
+  <body onload="main()">
+    <div class="container">
+      <div class="title">
+        <img src="images/logo.png" alt="">
+        <h1>Put on your glasses, be a dev hero 🤘</h1>
+      </div>
+      <canvas class="ar-canvas" id='jeeFaceFilterCanvas'>
+      </canvas>
+      <p class="footer">
+        More AR and other projects on
+        <a href="https://www.yannklein.me">
+          Yann Klein's portfolio
+        </a>
+      </p>
+    </div>
   </body>
 </html>
 
