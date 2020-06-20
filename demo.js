@@ -32,7 +32,7 @@ function init_threeScene(spec) {
           map: texture,
           side: THREE.DoubleSide
         },
-        position: { x: -0.3, y: 0.2, z: 0.6 },
+        position: { x: -0.32, y: 0.2, z: 0.6 },
         radius: 0.2
       });
       leftGlass.frustumCulled = false;
@@ -43,7 +43,7 @@ function init_threeScene(spec) {
           map: texture,
           side: THREE.DoubleSide
         },
-        position: { x: 0.3, y: 0.2, z: 0.6 },
+        position: { x: 0.32, y: 0.2, z: 0.6 },
         radius: 0.2
       });
       rightGlass.frustumCulled = false;
@@ -57,6 +57,11 @@ function init_threeScene(spec) {
     }
   );
 
+  createGltf(threeStuffs, 0.13);
+
+  const invisiblePlane = createPlane();
+  invisiblePlane.frustumCulled = false;
+  threeStuffs.faceObject.add(invisiblePlane);
 
   //CREATE THE CAMERA
   THREECAMERA = THREE.JeelizHelper.create_camera();
